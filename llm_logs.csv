@@ -1,2 +1,2 @@
-example_chatgpt_log_link1
-example_bing_chat_log_link2
+tool,model,purpose,log_link
+Claude Code,Claude Opus 5,"Assisted with the page structure in src/index.html, the SCSS styling in src/css, and the JavaScript for the page features in src/js; assisted with asset preparation, GitHub Pages deployment and browser testing",https://github.com/xuejunzhang2002/mp1/blob/main/llm_logs/claude_code_usage.md
