@@ -7,6 +7,7 @@
 import './index.html';
 
 // Stylesheets
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './css/main.scss';
 
 // Scripts

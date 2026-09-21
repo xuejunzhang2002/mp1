@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^11.0.0",

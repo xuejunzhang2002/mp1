@@ -4,10 +4,330 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
+        <meta name="description" content="Nanuq: field notes on the polar bear, the sea-ice hunter of the Arctic.">
+        <title>Nanuq · Field Notes on the Polar Bear</title>
+        <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
     </head>
     <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <nav class="nav" id="nav" aria-label="Primary">
+                <div class="nav__inner container">
+                    <a class="nav__brand" href="#home">
+                        <i class="fa-solid fa-paw" aria-hidden="true"></i>
+                        <span>Nanuq</span>
+                    </a>
+                    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <ul class="nav__menu" id="nav-menu">
+                        <li><a class="nav__link" href="#home">Home</a></li>
+                        <li><a class="nav__link" href="#about">About</a></li>
+                        <li><a class="nav__link" href="#gallery">Gallery</a></li>
+                        <li><a class="nav__link" href="#notes">Field Notes</a></li>
+                        <li><a class="nav__link" href="#film">Film</a></li>
+                        <li><a class="nav__link" href="#help">Help</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <section class="hero" id="home" aria-labelledby="hero-title">
+                <div class="hero__content container">
+                    <p class="eyebrow hero__eyebrow">Ursus maritimus &middot; the sea bear</p>
+                    <h1 class="hero__title" id="hero-title">Life on the <em>edge of the ice</em></h1>
+                    <p class="hero__lead">Field notes on the polar bear: the Arctic's top predator, and one of the clearest signs of how fast the far north is changing.</p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#about">Meet the bear</a>
+                        <a class="btn btn--ghost" href="#film"><i class="fa-solid fa-play" aria-hidden="true"></i> Watch the film</a>
+                    </div>
+                </div>
+                <a class="hero__scroll" href="#about" aria-label="Scroll to the About section">
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </a>
+            </section>
+        </header>
+
+        <main id="main">
+            <section class="section" id="about" aria-labelledby="about-title">
+                <div class="container">
+                    <div class="intro" data-reveal>
+                        <figure class="intro__media">
+                            <img src="assets/image.jpg" alt="A polar bear walking towards the camera across snow in Alaska" width="563" height="565">
+                        </figure>
+                        <div class="intro__text">
+                            <p class="eyebrow">About the bear</p>
+                            <h2 class="section__title" id="about-title">Meet the sea bear</h2>
+                            <p>Its scientific name, <i>Ursus maritimus</i>, means &ldquo;sea bear&rdquo;, and it fits. Polar bears spend most of their lives on the frozen surface of the Arctic Ocean, and they are the only bears classified as marine mammals.</p>
+                            <p>The Inuit call it <i>nanuq</i>. Around 26,000 polar bears live across the Arctic in 19 subpopulations, spread over Canada, the United States, Russia, Greenland and Norway.</p>
+                        </div>
+                    </div>
+
+                    <ul class="columns" data-reveal>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-temperature-low" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Built for the cold</h3>
+                            <p>Under the fur the skin is black, which soaks up heat. The outer hairs are actually transparent and hollow, and a layer of fat about 10&nbsp;cm thick keeps the cold out.</p>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-weight-hanging" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Largest land carnivore</h3>
+                            <p>Adult males usually weigh 350&ndash;700&nbsp;kg, around twice as much as females. Standing on their hind legs, the biggest males are close to 3&nbsp;metres tall.</p>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-shoe-prints" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Snowshoe paws</h3>
+                            <p>Paws up to 30&nbsp;cm across spread their weight on thin ice and work as paddles in the water. Small bumps on the pads help them grip without slipping.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section section--dark" id="gallery" aria-labelledby="gallery-title">
+                <div class="container">
+                    <header class="section__header" data-reveal>
+                        <p class="eyebrow">Gallery</p>
+                        <h2 class="section__title" id="gallery-title">Scenes from the far north</h2>
+                        <p class="section__lead">Photographs from the pack ice and fjords of Svalbard, plus a rare encounter near the North Pole.</p>
+                    </header>
+
+                    <div class="carousel" data-carousel data-reveal aria-roledescription="carousel" aria-label="Polar bear photographs">
+                        <div class="carousel__stage">
+                            <div class="carousel__viewport" aria-live="off">
+                                <div class="carousel__track" data-index="0">
+                                    <figure class="carousel__slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 4">
+                                        <img src="assets/ice-floe.jpg" alt="A polar bear stepping from one ice floe onto another" width="1920" height="1080">
+                                        <figcaption class="carousel__caption">
+                                            <h3>Stepping off the floe</h3>
+                                            <p>Polar bears travel and hunt from floating sea ice, crossing from floe to floe as they follow the seals.</p>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+                                        <img src="assets/mother-cub.jpg" alt="A female polar bear on the ice with her cub" width="1920" height="1080">
+                                        <figcaption class="carousel__caption">
+                                            <h3>Mother and cub</h3>
+                                            <p>Cubs stay with their mother for about two and a half years, learning to hunt by watching her.</p>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+                                        <img src="assets/krossfjord.jpg" alt="A polar bear walking over bare, rocky ground in Krossfjord, Svalbard" width="1920" height="1080">
+                                        <figcaption class="carousel__caption">
+                                            <h3>Summer on land</h3>
+                                            <p>When the sea ice melts, bears are pushed ashore where there is little to eat, and many live off their fat until the sea freezes again.</p>
+                                        </figcaption>
+                                    </figure>
+                                    <figure class="carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+                                        <img src="assets/north-pole.jpg" alt="Three polar bears approaching a submarine that has surfaced through the ice" width="1920" height="1440">
+                                        <figcaption class="carousel__caption">
+                                            <h3>Visitors near the North Pole</h3>
+                                            <p>Three curious bears inspect the submarine USS Honolulu after it surfaced through the ice, about 450&nbsp;km from the Pole.</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <button class="carousel__arrow carousel__arrow--prev" type="button" data-carousel-prev aria-label="Previous slide">
+                                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                            </button>
+                            <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="Next slide">
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="carousel__dots">
+                            <button class="carousel__dot" type="button" data-carousel-dot="0" aria-label="Go to slide 1" aria-current="true"></button>
+                            <button class="carousel__dot" type="button" data-carousel-dot="1" aria-label="Go to slide 2" aria-current="false"></button>
+                            <button class="carousel__dot" type="button" data-carousel-dot="2" aria-label="Go to slide 3" aria-current="false"></button>
+                            <button class="carousel__dot" type="button" data-carousel-dot="3" aria-label="Go to slide 4" aria-current="false"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="parallax" id="sea-ice" aria-labelledby="sea-ice-title">
+                <div class="container" data-reveal>
+                    <p class="eyebrow">Why the ice matters</p>
+                    <h2 class="parallax__title" id="sea-ice-title">No ice, no seals. No seals, no bears.</h2>
+                    <p class="parallax__stat">
+                        <span class="parallax__number">~12%</span>
+                        <span>The amount of September Arctic sea ice lost per decade since satellite records began in 1979.</span>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section" id="notes" aria-labelledby="notes-title">
+                <div class="container">
+                    <header class="section__header" data-reveal>
+                        <p class="eyebrow">Field notes</p>
+                        <h2 class="section__title" id="notes-title">How a polar bear gets through the year</h2>
+                        <p class="section__lead">Three short notes on hunting, swimming and raising cubs. Open one to read more.</p>
+                    </header>
+
+                    <ul class="columns" data-reveal>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-paw" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Still-hunting</h3>
+                            <p>Hours of patience beside a seal's breathing hole in the ice.</p>
+                            <div class="card__action">
+                                <button class="btn btn--link" type="button" data-modal-open="modal-hunt">Read the note <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-water" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Long-distance swimmers</h3>
+                            <p>As the ice breaks up, the swims between floes are getting longer.</p>
+                            <div class="card__action">
+                                <button class="btn btn--link" type="button" data-modal-open="modal-swim">Read the note <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-snowflake" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Life in a snow den</h3>
+                            <p>Cubs born in mid-winter in a den dug into a snowdrift.</p>
+                            <div class="card__action">
+                                <button class="btn btn--link" type="button" data-modal-open="modal-den">Read the note <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <dialog class="modal" id="modal-hunt" aria-labelledby="modal-hunt-title">
+                    <div class="modal__inner">
+                        <button class="modal__close" type="button" data-modal-close aria-label="Close">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                        <img class="modal__media" src="assets/ice-floe.jpg" alt="" width="1920" height="1080">
+                        <div class="modal__body">
+                            <p class="eyebrow">Field note 01</p>
+                            <h3 class="modal__title" id="modal-hunt-title">Still-hunting at the breathing hole</h3>
+                            <p>Ringed and bearded seals make up most of a polar bear's diet. Seals keep breathing holes open in the ice, and a bear will stand or lie completely still beside one for hours, waiting for a seal to come up for air. This is called still-hunting.</p>
+                            <p>A strong sense of smell lets bears find seals from about a kilometre away, even under a layer of snow. They eat the calorie-rich blubber first. Spring on the sea ice is when they build up most of the fat they need for the rest of the year.</p>
+                            <ul class="modal__facts">
+                                <li><strong>2 species</strong><span>Main prey: ringed and bearded seals</span></li>
+                                <li><strong>~1 km</strong><span>Distance a bear can smell a seal from</span></li>
+                                <li><strong>Spring</strong><span>Peak hunting season on the ice</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </dialog>
+
+                <dialog class="modal" id="modal-swim" aria-labelledby="modal-swim-title">
+                    <div class="modal__inner">
+                        <button class="modal__close" type="button" data-modal-close aria-label="Close">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                        <img class="modal__media" src="assets/drift-ice.jpg" alt="" width="1920" height="1080">
+                        <div class="modal__body">
+                            <p class="eyebrow">Field note 02</p>
+                            <h3 class="modal__title" id="modal-swim-title">Swimmers of the open sea</h3>
+                            <p>Polar bears are strong swimmers. They paddle with their big front paws and steer with their hind legs, and they regularly swim between ice floes or from the ice to the shore.</p>
+                            <p>As the ice pulls back, those swims are getting longer. In 2008 scientists tracked a female in the Beaufort Sea who swam for nine days straight and covered 687&nbsp;km. She survived, but lost 22% of her body weight, and the yearling cub swimming with her did not make it.</p>
+                            <ul class="modal__facts">
+                                <li><strong>687 km</strong><span>Longest continuous swim on record</span></li>
+                                <li><strong>9 days</strong><span>How long that swim lasted</span></li>
+                                <li><strong>22%</strong><span>Body weight she lost on the way</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </dialog>
+
+                <dialog class="modal" id="modal-den" aria-labelledby="modal-den-title">
+                    <div class="modal__inner">
+                        <button class="modal__close" type="button" data-modal-close aria-label="Close">
+                            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                        </button>
+                        <img class="modal__media" src="assets/mother-cub.jpg" alt="" width="1920" height="1080">
+                        <div class="modal__body">
+                            <p class="eyebrow">Field note 03</p>
+                            <h3 class="modal__title" id="modal-den-title">Life in a snow den</h3>
+                            <p>In autumn, pregnant females dig maternity dens in deep snowdrifts. The cubs, usually twins, are born in mid-winter. They are born blind and weigh only about 600&nbsp;g.</p>
+                            <p>The family stays in the den until March or April, and the mother eats nothing the whole time. Counting the months before she denned, she can go up to eight months without food. After they leave the den, the cubs stay with her for about two and a half years.</p>
+                            <ul class="modal__facts">
+                                <li><strong>~600 g</strong><span>Weight of a newborn cub</span></li>
+                                <li><strong>8 months</strong><span>Longest fast for a denning mother</span></li>
+                                <li><strong>2.5 years</strong><span>Time cubs spend with their mother</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </dialog>
+            </section>
+
+            <section class="section section--dark" id="film" aria-labelledby="film-title">
+                <div class="container film">
+                    <div class="film__player" data-reveal>
+                        <video class="film__video" controls muted loop playsinline preload="metadata" poster="assets/arctic-poster.jpg">
+                            <source src="assets/arctic.mp4" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </div>
+                    <div class="film__text" data-reveal>
+                        <p class="eyebrow">Short film</p>
+                        <h2 class="section__title" id="film-title">Sixteen seconds on the drift ice</h2>
+                        <p>A short photo film put together from pictures taken in the drift ice around Svalbard, where bears hunt from the floating pack. Press play, then keep scrolling to find out how you can help.</p>
+                        <ul class="film__meta">
+                            <li><i class="fa-regular fa-clock" aria-hidden="true"></i>0:16</li>
+                            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Svalbard, Norway</li>
+                            <li><i class="fa-solid fa-camera" aria-hidden="true"></i>Photos: AWeith</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section--white" id="help" aria-labelledby="help-title">
+                <div class="container">
+                    <header class="section__header" data-reveal>
+                        <p class="eyebrow">Get involved</p>
+                        <h2 class="section__title" id="help-title">How you can help</h2>
+                        <p class="section__lead">The biggest threat to polar bears is the loss of the sea ice they hunt from. Here is where to start.</p>
+                    </header>
+
+                    <ul class="columns" data-reveal>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Cut your carbon</h3>
+                            <p>Sea-ice loss is driven by a warming climate. Using less energy, travelling smarter and backing clean power all help keep the ice frozen for longer.</p>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Back the science</h3>
+                            <p>Long-term monitoring of all 19 subpopulations shows where bears are struggling. Research and conservation groups depend on public support.</p>
+                        </li>
+                        <li class="card">
+                            <span class="card__icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span>
+                            <h3 class="card__title">Spread the word</h3>
+                            <p>International Polar Bear Day is 27 February. Share what you have learned, because what happens to the ice decides what happens to the bear.</p>
+                        </li>
+                    </ul>
+
+                    <div class="cta">
+                        <a class="btn btn--primary" href="https://polarbearsinternational.org/" target="_blank" rel="noopener">
+                            Visit Polar Bears International <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <a class="nav__brand footer__brand" href="#home">
+                    <i class="fa-solid fa-paw" aria-hidden="true"></i>
+                    <span>Nanuq</span>
+                </a>
+                <p class="footer__tagline">Field notes on the polar bear.</p>
+                <ul class="social" aria-label="Social media">
+                    <li><a class="social__link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a class="social__link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="container footer__credits">
+                <p>Photos from Wikimedia Commons: &ldquo;Polar Bear &ndash; Alaska&rdquo; by Alan Wilson (CC BY-SA 3.0); Svalbard photographs by AWeith (CC BY-SA 4.0); &ldquo;Polar bears near north pole&rdquo; by Chief Yeoman Alphonso Braggs, US Navy (public domain). Icons by Font Awesome.</p>
+                <p>Facts from the IUCN Red List, NASA and Polar Bears International. &copy; 2026 Nanuq, a CS 409 MP1 project.</p>
+            </div>
+        </footer>
     </body>
 </html>

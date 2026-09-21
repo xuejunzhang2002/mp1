@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Media query for viewports at or below a named breakpoint.
+@mixin down($name) {
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+// Dark gradient laid over a photo so white text on top stays readable.
+@mixin photo-overlay($image, $top: 0.55, $bottom: 0.8) {
+  background-color: $night;
+  background-image: linear-gradient(180deg, rgba($night, $top), rgba($night, $bottom)), url($image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin round-button($size) {
+  @include flex-center;
+  width: $size;
+  height: $size;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}

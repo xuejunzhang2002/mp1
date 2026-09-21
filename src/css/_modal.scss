@@ -1,0 +1,102 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Built on the native <dialog> element; js/modal.js adds the closing animation.
+.modal {
+  width: min(46rem, calc(100% - 2rem));
+  max-width: none;
+  max-height: calc(100vh - 3rem);
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: $radius;
+  color: $text;
+  background-color: $white;
+  box-shadow: 0 40px 90px -20px rgba($night, 0.65);
+
+  &[open] {
+    animation: modal-in 0.45s $ease-out both;
+  }
+
+  &::backdrop {
+    background-color: rgba($night, 0.72);
+    backdrop-filter: blur(4px);
+    animation: fade-in 0.35s ease both;
+  }
+
+  &.is-closing {
+    animation: modal-out 0.25s ease-in both;
+
+    &::backdrop {
+      animation: fade-out 0.25s ease-in both;
+    }
+  }
+
+  &__inner {
+    max-height: inherit;
+    overflow-y: auto;
+  }
+
+  &__media {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+  }
+
+  &__close {
+    @include round-button(2.5rem);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    font-size: 1.1rem;
+    color: $white;
+    background-color: rgba($night, 0.6);
+    transition: background-color 0.2s, transform 0.3s $ease-out;
+
+    &:hover {
+      background-color: $night;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__body {
+    padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.5rem, 4vw, 2.5rem) clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  &__title {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    color: $ink;
+  }
+
+  &__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 0.9rem 1rem;
+      border-radius: $radius-sm;
+      background-color: $ice;
+    }
+
+    strong {
+      display: block;
+      font-family: $font-display;
+      font-size: 1.4rem;
+      color: $deep;
+    }
+
+    span {
+      font-size: 0.85rem;
+      color: $muted;
+    }
+
+    @include down(xs) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

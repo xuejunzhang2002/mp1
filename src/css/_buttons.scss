@@ -1,0 +1,63 @@
+@use "sass:color";
+@use "variables" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.7rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s,
+    transform 0.25s $ease-out;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--primary {
+    color: $night;
+    background-color: $aurora;
+
+    &:hover {
+      background-color: color.adjust($aurora, $lightness: 8%);
+      box-shadow: 0 10px 24px -8px rgba($aurora, 0.6);
+    }
+  }
+
+  &--ghost {
+    color: $white;
+    border-color: rgba($white, 0.55);
+    background-color: rgba($white, 0.04);
+
+    &:hover {
+      border-color: $white;
+      background-color: rgba($white, 0.14);
+    }
+  }
+
+  &--link {
+    padding: 0.25rem 0;
+    border-radius: 0;
+    color: $deep;
+    background: none;
+
+    i {
+      transition: transform 0.25s $ease-out;
+    }
+
+    &:hover {
+      transform: none;
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+  }
+}

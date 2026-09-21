@@ -1,0 +1,164 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.carousel {
+  max-width: 1040px;
+  margin-inline: auto;
+
+  &__stage {
+    position: relative;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    border-radius: $radius;
+    box-shadow: $shadow-media;
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.7s $ease-out;
+
+    // One rule per slide position; JS only switches data-index, so no inline styles are needed.
+    @for $i from 0 to $carousel-max-slides {
+      &[data-index="#{$i}"] {
+        transform: translateX(-100% * $i);
+      }
+    }
+  }
+
+  &__slide {
+    position: relative;
+    flex: 0 0 100%;
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    background-color: $night;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5rem clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 3vw, 2rem);
+    text-align: left;
+    color: $white;
+    background-image: linear-gradient(0deg, rgba($night, 0.88), rgba($night, 0));
+
+    > * {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s $ease-out, transform 0.6s $ease-out;
+    }
+
+    h3 {
+      margin-bottom: 0.35rem;
+      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+    }
+
+    p {
+      max-width: 38rem;
+      margin: 0;
+      font-size: 0.98rem;
+      color: rgba($white, 0.85);
+    }
+  }
+
+  // Caption text of the incoming slide rises in once the slide has moved into place.
+  &__slide.is-active &__caption > * {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.35s;
+  }
+
+  &__slide.is-active &__caption p {
+    transition-delay: 0.45s;
+  }
+
+  &__arrow {
+    @include round-button(3.25rem);
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    translate: 0 -50%;
+    font-size: 1.05rem;
+    color: $ink;
+    background-color: rgba($white, 0.92);
+    box-shadow: 0 8px 20px -6px rgba($night, 0.5);
+    transition: background-color 0.25s, transform 0.25s $ease-out;
+
+    &:hover {
+      background-color: $aurora;
+      transform: scale(1.08);
+    }
+
+    &--prev {
+      left: clamp(0.75rem, 2vw, 1.5rem);
+    }
+
+    &--next {
+      right: clamp(0.75rem, 2vw, 1.5rem);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  // The button is a generous hit target; the visible pill is drawn by ::before.
+  &__dot {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    padding: 0 0.1rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background-color: rgba($frost, 0.35);
+      transition: width 0.35s $ease-out, background-color 0.35s;
+    }
+
+    &:hover::before {
+      background-color: rgba($frost, 0.7);
+    }
+
+    &[aria-current="true"]::before {
+      width: 2rem;
+      background-color: $aurora;
+    }
+  }
+
+  @include down(xs) {
+    &__arrow {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    &__caption {
+      padding-top: 3rem;
+
+      p {
+        font-size: 0.88rem;
+      }
+    }
+  }
+}

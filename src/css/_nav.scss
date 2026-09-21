@@ -1,0 +1,189 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: var(--nav-h-lg);
+  color: $white;
+  background-image: linear-gradient(180deg, rgba($night, 0.55), rgba($night, 0));
+  transition: height $nav-speed $ease-out, box-shadow $nav-speed $ease-out;
+
+  // Solid layer faded in once the bar shrinks (gradients can't be transitioned directly).
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba($ink, 0.94);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity $nav-speed $ease-out;
+  }
+
+  &.is-shrunk,
+  &.is-open {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.is-shrunk {
+    height: var(--nav-h-sm);
+    box-shadow: 0 8px 28px -12px rgba($night, 0.6);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: $font-display;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: font-size $nav-speed $ease-out;
+
+    i {
+      font-size: 0.8em;
+      color: $aurora;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 0.55rem 0.85rem;
+    font-size: 1.02rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    opacity: 0.78;
+    transition: opacity 0.2s, font-size $nav-speed $ease-out;
+
+    // Position indicator: underline grows in under the section currently being read.
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.85rem;
+      right: 0.85rem;
+      bottom: 0.2rem;
+      height: 2px;
+      border-radius: 2px;
+      background-color: $aurora;
+      transform: scaleX(0);
+      transition: transform 0.3s $ease-out;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.is-active {
+      opacity: 1;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &.is-shrunk &__brand {
+    font-size: 1.3rem;
+  }
+
+  &.is-shrunk &__link {
+    font-size: 0.9rem;
+  }
+
+  &__toggle {
+    @include round-button(2.75rem);
+    display: none;
+    font-size: 1.2rem;
+    color: $white;
+    background-color: rgba($white, 0.08);
+  }
+
+  @include down(sm) {
+    &__link {
+      padding-inline: 0.6rem;
+      font-size: 0.95rem;
+
+      &::after {
+        left: 0.6rem;
+        right: 0.6rem;
+      }
+    }
+
+    &.is-shrunk &__link {
+      font-size: 0.85rem;
+    }
+  }
+
+  // Phones: links collapse into a drop-down behind a menu button.
+  @include down(xs) {
+    &__toggle {
+      display: inline-flex;
+    }
+
+    &__menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding-inline: 1.25rem;
+      background-color: rgba($ink, 0.97);
+      transition: max-height 0.4s $ease-out, padding-block 0.4s $ease-out;
+    }
+
+    &.is-open &__menu {
+      max-height: 26rem;
+      padding-block: 0.5rem 1rem;
+    }
+
+    &__link,
+    &.is-shrunk &__link {
+      padding: 0.8rem 0.25rem;
+      font-size: 1rem;
+
+      &::after {
+        left: 0.25rem;
+        right: auto;
+        width: 1.5rem;
+      }
+    }
+
+    &__brand {
+      font-size: 1.45rem;
+    }
+
+    &.is-shrunk &__brand {
+      font-size: 1.2rem;
+    }
+  }
+}

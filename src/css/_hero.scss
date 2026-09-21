@@ -1,0 +1,78 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Staggered entrance: each part of the hero fades up slightly after the previous one.
+$hero-sequence: (
+  eyebrow: 0.1s,
+  title: 0.25s,
+  lead: 0.45s,
+  actions: 0.65s,
+);
+
+.hero {
+  @include flex-center(column);
+  @include photo-overlay("../assets/drift-ice.jpg", 0.5, 0.85);
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: calc(var(--nav-h-lg) + 2rem) 6rem;
+  color: $white;
+  text-align: center;
+
+  &__content {
+    max-width: 54rem;
+  }
+
+  &__eyebrow {
+    color: $aurora;
+  }
+
+  &__title {
+    font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    em {
+      font-weight: 500;
+      color: $aurora;
+    }
+  }
+
+  &__lead {
+    max-width: 40rem;
+    margin-inline: auto;
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    color: rgba($white, 0.88);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.25rem;
+  }
+
+  @each $part, $delay in $hero-sequence {
+    &__#{$part} {
+      animation: fade-up 1s $ease-out $delay both;
+    }
+  }
+
+  &__scroll {
+    @include round-button(3rem);
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    translate: -50% 0;
+    color: $white;
+    border: 1px solid rgba($white, 0.45);
+    text-decoration: none;
+    animation: bob 2.2s ease-in-out infinite;
+    transition: background-color 0.25s;
+
+    &:hover {
+      background-color: rgba($white, 0.15);
+    }
+  }
+}

@@ -1,0 +1,41 @@
+// Design tokens shared by every partial.
+
+// Palette
+$night: #07121e;
+$ink: #0b1a2a;
+$deep: #123049;
+$ice: #f3f7fa;
+$frost: #dce8f1;
+$glacier: #2b86ad;
+$aurora: #6fe0c1;
+$text: #1d2b3a;
+$muted: #5a6b7d;
+$white: #fff;
+
+// Typography
+$font-display: "Fraunces", Georgia, "Times New Roman", serif;
+$font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+// Layout
+$container-width: 1180px;
+$radius: 16px;
+$radius-sm: 10px;
+
+// Motion
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$nav-speed: 0.35s;
+
+// Breakpoints (max-width, inclusive)
+$breakpoints: (
+  md: 1024px,
+  sm: 768px,
+  xs: 600px,
+);
+
+// Highest slide count the carousel supports (one transform rule is generated per slide)
+$carousel-max-slides: 8;
+
+// Shadows
+$shadow-card: 0 1px 2px rgba($ink, 0.06), 0 14px 34px -14px rgba($ink, 0.22);
+$shadow-lift: 0 2px 4px rgba($ink, 0.08), 0 24px 48px -18px rgba($ink, 0.3);
+$shadow-media: 0 30px 60px -24px rgba(0, 0, 0, 0.7);

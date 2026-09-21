@@ -1,1 +1,13 @@
-/* Your SCSS here. */
+/*
+ * Nanuq: main stylesheet.
+ * Design tokens live in _variables and helpers in _mixins; every other partial styles one part of the page.
+ */
+@use "base";
+@use "buttons";
+@use "animations";
+@use "nav";
+@use "hero";
+@use "sections";
+@use "carousel";
+@use "modal";
+@use "footer";

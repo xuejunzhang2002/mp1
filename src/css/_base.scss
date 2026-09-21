@@ -1,0 +1,125 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Navbar heights are CSS variables so js/nav.js can read them when computing scroll offsets.
+:root {
+  --nav-h-lg: 88px;
+  --nav-h-sm: 64px;
+
+  @include down(xs) {
+    --nav-h-lg: 72px;
+    --nav-h-sm: 60px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+
+  &.has-modal {
+    overflow: hidden;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: $text;
+  background-color: $ice;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5em;
+  font-family: $font-display;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid $aurora;
+  outline-offset: 3px;
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+main section[id] {
+  scroll-margin-top: var(--nav-h-sm);
+}
+
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  color: $night;
+  text-decoration: none;
+  background-color: $aurora;
+  transform: translateY(-200%);
+  transition: transform 0.2s;
+
+  &:focus {
+    transform: none;
+  }
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $glacier;
+}
+
+// Scroll reveal: elements fade up once they enter the viewport (see js/reveal.js).
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s $ease-out, transform 0.9s $ease-out;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
